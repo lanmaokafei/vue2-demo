@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>01-let与const</title>
+</head>
+<body>
+
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+<script>
+    // let 和 const 声明 变量和常量 之前使用var声明
+    // let作用域只局限于当前模块下
+    /* {
+        var str = '懒猫';
+        console.log(str);
+
+        let str1 = '咖啡';
+
+        console.log(str1);
+    }
+
+    console.log('+++++++' + str);
+
+    console.log('-------' + str1);  //str1只是在之前{}作用域内生效*/
+
+    // 使用let声明的变量作用域不会被提升
+    /*{
+        console.log(str1);  // undefined
+        var str1 = '懒猫';
+
+        var str1;
+        console.log(str1);  // undefined
+        str1 = '咖啡';
+
+    }*/
+    /*{
+        console.log(str);
+        let str = '懒猫';
+    }*/
+
+    // 在相同的作用域下不能声明相同的变量
+
+    /*{
+        var str1 = '懒猫';
+
+        var str1 = '咖啡';
+
+        console.log(str1);
+
+        let str2 = '懒猫咖啡';
+        let str2 = '咖菲猫';
+
+        console.log(str2); //解释错误直接忽视
+    }*/
+
+    // for循环体现let的父子作用域
+
+    // 弹出框输出的i全部值都是5
+    /*{
+
+        var btns = document.querySelectorAll('button');
+        for(var i=0; i<btns.length; i++){
+            btns[i].onclick = function () {
+                alert('点击了第' + i + '按钮');
+            }
+        }
+
+    }*/
+
+    // 闭包方式解决上面i全等于5的问题
+    /*{
+
+        var btns = document.querySelectorAll('button');
+        for(var i=0; i<btns.length; i++){
+            // 封闭起来形成单独作用域
+            (function (i) {
+                btns[i].onclick = function () {
+                    alert('点击了第' + i + '按钮');
+                }
+            })(i);
+        }
+    }*/
+
+    // ES6实现方式
+    /*{
+
+        let btns = document.querySelectorAll('button');
+        for(let i=0; i<btns.length; i++){
+            btns[i].onclick = function () {
+                alert('点击了第' + i + '按钮');
+            }
+        }
+    }*/
+
+    // 验证作用域
+    /*    {
+        for(let i=0; i<5; i++){
+            let i = 20;
+            console.log(i);
+        }
+    }*/
+
+
+
+</script>
+
+<script>
+    // const 只在当前的代码块中有效
+    /*{
+        const a = '懒猫';
+        console.log(a); // 有效
+    }
+    console.log(a); // 离开上面代码块a无效*/
+
+    // 作用域不会被提升
+
+    // 不能重复声明
+    /*{
+        const a = '懒猫';
+        const a = '咖啡';  // 不能重复声明
+        console.log(a);
+    }*/
+
+    // 声明必须声明
+
+    /*{
+        let name;
+        name = '懒猫';
+        console.log(name);
+
+        const name2;
+        name2 = '咖啡';  // 直接编辑器报错,声明时候必须立即赋值
+        console.log(name2);
+    }*/
+
+    /*{
+        const name = '懒猫';
+        name = '咖啡';  // 常量不能重新赋值
+        console.log(name);
+    }*/
+
+    /*{
+        const obj = {name:'懒猫'};
+        console.log(obj);
+
+        obj.name = '咖啡';  // 映射改变了
+        console.log(obj);
+    }*/
+
+</script>
+</body>
+</html>
