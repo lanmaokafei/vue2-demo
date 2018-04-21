@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="show">要显示出来!</p>
+        <p v-if="hide">不要显示出来!</p>
+        <p v-if="height > 1.55">身高:{{height}}m</p>
+        <p v-if="height1 > 1.85">身高:{{height}}m</p>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                show:true,
+                hide:false,
+
+                height:1.68,
+                height1:1.38
+            }
+        });
+    </script>
+</body>
+</html>
