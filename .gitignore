@@ -19,4 +19,4 @@ var/
 __pycache__/
 .vscode/
 *.spec
-
+node_modules/
