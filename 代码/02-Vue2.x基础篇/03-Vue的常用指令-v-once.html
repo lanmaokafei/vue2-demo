@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-once>原始值:{{msg}}</p>
+        <p>后面的值:{{msg}}</p>
+        <input v-model="msg">
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '今天天气很好!'
+            }
+        });
+    </script>
+</body>
+</html>
