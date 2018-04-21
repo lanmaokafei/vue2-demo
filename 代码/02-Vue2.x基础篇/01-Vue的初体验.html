@@ -7,7 +7,7 @@
 <body>
     <div id="app">
         <p>{{message}}</p>
-        <input v-model="message" type="text" />
+        <p>{{msg}}</p>
     </div>
 
 <script src="js/vue.js"></script>
@@ -17,7 +17,8 @@
     let vm = new Vue({
         el:'#app',
         data:{  // vue中的model -> 数据
-            message:'你好!'
+            message:'你好!',
+            msg:'今天天气很好'
         }
     });
 </script>
