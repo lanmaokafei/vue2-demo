@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-Vue的常用指令-v-else-if</title>
+</head>
+<body>
+    <div id="app">
+        <p>输入的成绩对应的等级是:</p>
+        <p v-if="score >= 90">优秀</p>
+        <p v-else-if="score >= 75">良好</p>
+        <p v-else-if="score >= 60">及格</p>
+        <p v-else>不及格</p>
+        <input type="text" v-model="score">
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                score: 90
+            }
+        });
+    </script>
+</body>
+</html>
