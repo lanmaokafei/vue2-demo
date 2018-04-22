@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-Vue的常用指令-v-for</title>
+    <style>
+        table{
+            width: 600px;
+            border: 2px solid orangered;
+            text-align: center;
+        }
+        thead{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                    <td>性别</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="p in persone">
+                    <td>{{p.name}}</td>
+                    <td>{{p.age}}</td>
+                    <td>{{p.sex}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                persone:[
+                    {name:'张三', age: 18, sex: '男'},
+                    {name:'李四', age: 20, sex: '女'},
+                    {name:'王五', age: 19, sex: '男'},
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
