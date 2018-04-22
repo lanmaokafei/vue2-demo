@@ -16,6 +16,7 @@
     <p v-for="(college, index) in colleges" :class="index === activeIndex ? 'active': ''">
         {{college}}
     </p>
+    <p :style="{color:fontColor}">今天很好天气!</p>
 </div>
 
 <script src="js/vue.js"></script>
@@ -31,7 +32,8 @@
                 'C#',
                 'VB'
             ],
-            activeIndex: 3
+            activeIndex: 3,
+            fontColor: 'red'
         }
     });
 </script>
