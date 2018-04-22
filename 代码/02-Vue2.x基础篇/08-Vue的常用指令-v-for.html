@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-Vue的常用指令-v-for</title>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(score, index) in scores">
+            {{index + ':' + score}}
+        </p>
+        <p v-for="d in dog">
+            {{d}}
+        </p>
+        <p v-for="str in name">
+            {{str}}
+        </p>
+        <p v-for="p in phone">
+            {{p}}
+        </p>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                scores: [100, 80, 88, 90],
+                dog:{name:'旺财', age:6, height:1.44},
+                name: 'zhangsan',
+                phone:'123465789'
+            }
+        });
+    </script>
+</body>
+</html>
