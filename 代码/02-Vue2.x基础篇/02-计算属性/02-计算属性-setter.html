@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-计算属性-setter</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{fullName}}</p>
+        <button @click="deal()">调用计算属性的setter方法</button>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                firstName:'张',
+                lastName:'san'
+            },
+            methods:{
+                deal(){
+                    this.fullName = 'Token Lily';
+                }
+            },
+            computed:{
+                // get
+//                fullName(){
+//                    return this.firstName + ' ' + this.lastName
+//                }
+
+                fullName:{
+                    // get 方法
+                    get(){
+                        return this.firstName + ' ' + this.lastName;
+                    },
+
+                    // set方法
+                    set(str){
+                        let nameArr = str.split(' ');
+                        this.firstName = nameArr[0];
+                        this.lastName = nameArr[1];
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
