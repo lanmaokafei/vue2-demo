@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-验证data选项必须是函数</title>
+</head>
+<body>
+    <div id="app">
+        <my-btn></my-btn>
+        <my-btn></my-btn>
+        <my-btn></my-btn>
+        <my-btn></my-btn>
+        <my-btn></my-btn>
+     </div>
+
+    <!--注册一个组件-->
+    <template id="my_btn">
+        <button @click="counter +=1">点击次数:{{counter}}</button>
+    </template>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        let data  = {
+            counter:0
+        }
+
+        // 1. 实例化组件
+        Vue.component('my-btn',{
+            template:'#my_btn',
+            data(){
+                // 如果直接调用对象,则全部组件共享存储
+//                return data;
+                // 每个组件都单独存储
+                return {
+                    counter:0
+                }
+            }
+        })
+
+        var vm = new Vue({
+            el:'#app',
+        });
+    </script>
+</body>
+</html>
