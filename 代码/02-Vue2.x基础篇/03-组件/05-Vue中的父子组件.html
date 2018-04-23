@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05-Vue中的父子组件</title>
+</head>
+<body>
+    <div id="app">
+        <parnet></parnet>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        // 1.子组件构造器
+        let Child1 = Vue.extend({
+            template:`
+                <img src="img/img_01.jpg" width="200">
+            `
+        });
+
+        let Child2 = Vue.extend({
+            template:`
+                <p>Logo很漂亮!</p>
+            `
+        });
+
+        // 2. 父组件构造器
+        Vue.component('parnet',{
+            components:{
+                'my-child1':Child1,
+                'my-child2':Child2
+            },
+            template:`
+                <div>
+                    <my-child1></my-child1>
+                    <my-child2></my-child2>
+                </div>
+            `
+        });
+
+
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'今天天气很好!'
+            }
+        });
+    </script>
+</body>
+</html>
