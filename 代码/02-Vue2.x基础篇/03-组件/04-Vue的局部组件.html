@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-Vue的局部组件</title>
+</head>
+<body>
+    <div id="app">
+        <my-date></my-date>
+        <my-color></my-color>
+    </div>
+
+    <div id="app1">
+        <my-date></my-date>
+        <my-color></my-color>
+    </div>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+
+        var vm = new Vue({
+            el:'#app',
+            // 注册局部组件,只能用在当前实例当中
+            components:{
+                'my-date':{
+            // 1.1 模板选项
+            template:`
+            <div>
+                <input type="date">
+                <p>今天已经是冬天了!</p>
+            </div>
+            `
+        },
+                'my-color':{
+            // 1.1 模板选项
+            template:`
+            <div>
+                <input type="color">
+                <p>我是一个色板!</p>
+            </div>
+            `
+        }
+            },
+            data:{
+                msg:'今天天气很好!'
+            }
+        });
+
+        // 调用my-date,无效,浏览器中报错
+        var vm1 = new Vue({
+            el:'#app1',
+            // 注册局部组件,只能用在当前实例当中
+
+            data:{
+                msg:'今天天气很好!'
+            }
+        });
+    </script>
+</body>
+</html>
