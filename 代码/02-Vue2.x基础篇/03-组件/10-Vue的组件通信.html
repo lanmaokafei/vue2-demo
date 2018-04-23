@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10-Vue的组件通信</title>
+</head>
+<body>
+    <div id="app">
+        <my-div message="今天要下雨" imgsrc="img/img_02.jpg"></my-div>
+        <my-div message="明天要好天" imgsrc="img/img_01.jpg"></my-div>
+    </div>
+
+    <template id="my_div">
+        <div>
+            <h1>{{message}}</h1>
+            <img :src="imgsrc" width="200" alt="">
+        </div>
+    </template>
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        // 1.创建组件
+        Vue.component('my-div',{
+            template:'#my_div',
+            props:['message', 'imgsrc']
+        })
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'今天天气很好!'
+            }
+        });
+    </script>
+</body>
+</html>
