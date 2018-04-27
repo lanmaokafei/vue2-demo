@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14-Vue的实名插槽slot</title>
+</head>
+<body>
+    <div id="app">
+        <my-computer>
+            <div slot="cpu">Inter Core i9</div>
+            <img src="img/img_02.jpg" width="200" slot="gpu" alt="">
+            <div slot="memory">128G</div>
+            <input type="text" slot="hard-drive" placeholder="输入电话">
+        </my-computer>
+    </div>
+
+    <template id="my_computer">
+        <div id="main">
+            <slot name="cpu">这里是插CPU的</slot>
+            <slot name="gpu">这里是插GPU的</slot>
+            <slot name="memory">这里是插内存的</slot>
+            <slot name="hard-drive">这里是插硬盘的</slot>
+        </div>
+    </template>
+    <script src="js/vue.js"></script>
+
+    <script>
+        Vue.component('my-computer',{
+            template:'#my_computer'
+        });
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'今天天气很好!'
+            }
+        });
+    </script>
+</body>
+</html>
