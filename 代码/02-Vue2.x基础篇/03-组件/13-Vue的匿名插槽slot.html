@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>13-Vue的匿名插槽slot</title>
+</head>
+<body>
+    <div id="app">
+        <my-slot>
+            <img src="img/img_01.jpg" width="200" alt="">
+        </my-slot>
+    </div>
+
+    <template id="my_slot">
+        <div id="panel">
+            <h2 class="panel-header">插槽的头部</h2>
+            <!--预留一个插槽-->
+            <slot>slot可以替换任何标签,默认显示提示的内容</slot>
+            <footer>插槽的尾部</footer>
+        </div>
+    </template>
+    <script src="js/vue.js"></script>
+
+    <script>
+        Vue.component('my-slot',{
+            template:'#my_slot'
+        });
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'今天天气很好!'
+            }
+        });
+    </script>
+</body>
+</html>
