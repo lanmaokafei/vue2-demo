@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-Vue-router的基本使用</title>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    
+    <template id="h5">
+        <div>
+            <h2>HTML5学院</h2>
+            <p>掌握面向未来的神技！</p>
+            <img src="img/h5.jpg" width="250" alt="">
+        </div>
+    </template>
+
+    <template id="java">
+        <div>
+            <h2>JAVA学院</h2>
+            <p>最好的语言！</p>
+            <img src="img/java.jpg" width="250" alt="">
+        </div>
+    </template>
+
+    <template id="python">
+        <div>
+            <h2>Python学院</h2>
+            <p>好火！</p>
+            <img src="img/python.jpg" width="250" alt="">
+        </div>
+    </template>
+    
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script>
+        
+        // 1.定义路由组件
+        const Html5 = Vue.extend({
+            template:'#h5'
+        });
+        const Java = Vue.extend({
+            template:'#java'
+        });
+        const Python = Vue.extend({
+            template:'#python'
+        });
+        // 2.定义路由
+        const routes = [
+            {path:'/h5', component:Html5},
+            {path:'/java', component:Java},
+            {path:'/python', component:Python},
+        ];
+        // 3.创建路由实例
+        const router = new VueRouter({
+            routes
+        });
+        // 4.创建Vue实例并挂载路由
+        new Vue({
+            router
+        }).$mount('#app')
+
+    </script>
+</body>
+</html>
