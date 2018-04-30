@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>01-Vue-router的基本使用</title>
+    <link rel="stylesheet" href="bs/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bs/fonts/css/fontawesome-all.css">
+    <style>
+        body{
+            background-color: #e8e8e8;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        
+        <div class="container">
+            <div class="row justify-content-lg-center">
+                <div class="col col-lg-8">
+                    <div class="page-header">
+                        <h1>懒猫咖啡</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-lg-center">
+                <div class="col col-lg-2">
+                    <div class="list-group">
+                        <!--使用router-link组件来导航-->
+                        <!--通过传入'to'属性指定链接-->
+                        <!--<router-link>默认会被渲染成一个<a>标签-->
+                        <router-link to="/h5" class="list-group-item list-group-item-action">HTML5学院</router-link>
+                        <router-link to="/java" class="list-group-item list-group-item-action">JAVA学院</router-link>
+                        <router-link to="/python" class="list-group-item list-group-item-action">Python学院</router-link>
+                    </div>
+                </div>
+                <div class="col col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!--路由出口-->
+                            <!--路由匹配到的组件将渲染到这里-->
+                            <router-view></router-view>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <template id="h5">
@@ -52,6 +88,8 @@
             {path:'/h5', component:Html5},
             {path:'/java', component:Java},
             {path:'/python', component:Python},
+            //配置根路由
+            {path:'/', redirect:'/h5'}
         ];
         // 3.创建路由实例
         const router = new VueRouter({
@@ -63,5 +101,8 @@
         }).$mount('#app')
 
     </script>
+    <script src="bs/js/jquery.min.js"></script>
+    <script src="bs/js/poper.js"></script>
+    <script src="bs/js/bootstrap.min.js"></script>
 </body>
 </html>
