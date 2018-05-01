@@ -5,59 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>购物车</title>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shopCart.css">
 </head>
 <body>
-    <div class="card" id="app">
+    <div id="app">
         <!--头部区域-->
-        <div class="card-header text-center">
-            <a href="index.html"><i class="fas fa-home"></i></a>
-            <span>购物车</span>
-            <a href=""><i class="fas fa-shopping-cart"></i></a>
+        <div class="header">
+            <a href="index.html" class="icon_back"></a>
+            <h3>购物车</h3>
+            <a href="" class="icon_menu"></a>
         </div>
-        <div class="card card-body">
-            <!--安全提示-->
-            <div class="jd_safe_tip">
-                <p class="tip_word">
-                    您正在安全购物环境中,请放心购买
-                </p>
-            </div>
+        <!--安全提示-->
+        <div class="jd_safe_tip">
+            <p class="tip_word">
+                您正在安全购物环境中,请放心购买
+            </p>
+        </div>
 
-            <!--中间的列表-->
-            <main class="jd_shopCart_list">
-                test
-            </main>
-        </div>
+        <!--中间的列表-->
+        <main class="jd_shopCart_list">
+            <section v-for="(shop, index) in shopListArr">
+                <div class="shopCart_list_title">
+                    <span class="cart_logo"></span>
+                    <span class="cart_title">京东自营</span>
+                    <span class="cart_sale">您享受满100免运费服务</span>
+                </div>
+                <div class="shopCart_list_con">
+                    <div class="list_con_left">
+                        <a href="javascript:;" class="cart_check_box"></a>
+                    </div>
+                    <div class="list_con_right">
+                        <div class="shop_img">
+                            <img :src="shop.shopImage" :alt="shop.Name">
+                        </div>
+                        <div class="shop_con">
+                            <a href="" v-text="shop.shopName"></a>
+                            <div class="shop_price">
+                                <div class="singer">{{shop.shopPrice}}</div>
+                                <div class="total">{{shop.shopNumber * shop.shopPrice}}</div>
+                            </div>
+                            <div class="shop_deal">
+                                <div class="shop_deal_left">
+                                    <span>-</span>
+                                    <input type="tel" value="shop.shopNumber" v-model="shop.shopNumber">
+                                    <span>+</span>
+                                </div>
+                                <div class="shop_deal_right">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
         <!--底部通栏-->
-        <div class="card card-footer">
-            <a href="javascript:;" class="cart_check_box" checked>
+        <div id="tab_bar">
+            <div class="tab-bar-left">
+                <a href="javascript:;" class="cart_check_box" checked></a>
                 <span style="font-size: 16px;">全选</span>
-            </a>
-            <div class="select-all">
-                合计:<span class="total-price">￥333.2</span>
-            </div>
-            <div class="tab-bar-right">
-                <a href="index.html" class="pay">去结算</a>
+                <div class="select-all">
+                    合计:<span class="total-price">￥333.2</span>
+                </div>
+                <div class="tab-bar-right">
+                    <a href="index.html" class="pay">去结算</a>
+                </div>
             </div>
         </div>
         <!--弹出面板-->
-        <div class="card text-center">
-            <div class="card-header"></div>
-            <div class="card-body">
-                <h5 class="card-title">您确定删除这个商品吗?</h5>
-            </div>
-            <div class="card-footer">
-                <a href="#" class="btn btn-primary">取消</a>
-                <a href="#" class="btn btn-danger">确定</a>
+        <div class="panel panel_is_show">
+            <div class="panel_content">
+                <div class="panel_title">您确认删除这个商品吗?</div>
+                <div class="panel_footer">
+                    <button class="cancel">取消</button>
+                    <button class="submit">确认</button>
+                </div>
             </div>
         </div>
     </div>
-    <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/vue.js"></script>
-    <script src="js/lib/poper.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/axios.js"></script>
+    <script src="js/lib/vue-resource.js"></script>
     <script src="js/base.js"></script>
-    <script src="js/shopCart.js"></script>
     <script src="js/shopCartloop.js"></script>
 </body>
 </html>

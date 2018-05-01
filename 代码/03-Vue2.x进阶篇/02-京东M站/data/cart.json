@@ -21,12 +21,6 @@
         "shopPrice":199.00,
         "shopNumber":1,
         "shopImage":"images/img_03.jpg"
-      },{
-        "shopId":"1004",
-        "shopName":"金龙卡",
-        "shopPrice":2.00,
-        "shopNumber":1,
-        "shopImage":"images/img_04.jpg"
       }
     ]
   }
