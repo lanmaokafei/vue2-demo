@@ -1,0 +1,33 @@
+{
+  "allShops":{
+    "totalMoney":0,
+    "shopList":[
+      {
+        "shopId":"1001",
+        "shopName":"金龙卡",
+        "shopPrice":1.00,
+        "shopNumber":1,
+        "shopImage":"images/img_01.jpg"
+      },
+      {
+        "shopId":"1002",
+        "shopName":"金龙卡",
+        "shopPrice":299.00,
+        "shopNumber":1,
+        "shopImage":"images/img_02.jpg"
+      },{
+        "shopId":"1003",
+        "shopName":"金龙卡",
+        "shopPrice":199.00,
+        "shopNumber":1,
+        "shopImage":"images/img_03.jpg"
+      },{
+        "shopId":"1004",
+        "shopName":"金龙卡",
+        "shopPrice":2.00,
+        "shopNumber":1,
+        "shopImage":"images/img_04.jpg"
+      }
+    ]
+  }
+}
