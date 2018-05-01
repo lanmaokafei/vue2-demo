@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/fonts/css/fontawesome-all.min.css">
 </head>
 <body>
+    <div id="app">
+        <div class="header">
+            <a href="index.html" class="icon_back"><i class="fas fa-home"></i></a>
+            <h3>购物车</h3>
+            <a href="" class="icon_menu"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </div>
+    <!--安全提示-->
+    <div class="jd_safe_tip">
+        <p class="tip_word">
+            您正在安全购物环境中,请放心购买
+        </p>
+    </div>
+    <main class="jd_shopCart_list">
 
+    </main>
+    <script src="js/lib/vue.js"></script>
+    <script src="js/lib/axios.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/shopCart.js"></script>
+    <script src="js/shopCartloop.js"></script>
 </body>
 </html>
