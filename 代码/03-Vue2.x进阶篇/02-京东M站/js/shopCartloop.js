@@ -27,7 +27,7 @@ new Vue({
                     console.log(this.shopListArr);
                 }
               })
-              .catch(function (error) {
+              .catch((error) => {
                 console.log(error);
                 alert('请求数据失败!');
               });
