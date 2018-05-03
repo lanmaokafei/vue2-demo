@@ -62,14 +62,16 @@ new Vue({
         singerShopPrice(shop, flag){
             if(flag){
                 //加
-                return shop.shopNumber +=1;
+                shop.shopNumber +=1;
             }else{
                 if(shop.shopNumber <= 1){
                     shop.shopNumber =1;
                     return;
                 }
                 shop.shopNumber -= 1;
-            }
+            };
+            // 2.2计算总价
+            this.getAllShopPrice();
         },
 
         // 3.全选控制
@@ -90,7 +92,7 @@ new Vue({
             this.getAllShopPrice();
         },
 
-        //4.计算商品的总价格
+        // 4.计算商品的总价格
         getAllShopPrice(){
             let totalPrice = 0;
             // 4.1遍历所有商品
@@ -101,6 +103,31 @@ new Vue({
                }
             });
             this.totalPrice = totalPrice;
+            // 判断是否全选
+            this.hasSelectedAll();
+        },
+
+        // 5.单个商品选中和取消
+        singerShopSelected(shop){
+            // 5.1 判断是否有checked这个属性
+            if(typeof shop.checked === 'undefined'){
+                    this.$set(shop, 'checked', true);
+            }else{
+                shop.checked = !shop.checked;
+            };
+            // 5.2计算总价
+            this.getAllShopPrice();
+        },
+
+        // 6.判断是否全选
+        hasSelectedAll(){
+            let flag = true;
+            this.shopListArr.forEach((value,index)=>{
+                if(!value.checked){
+                    flag = false;
+                }
+            });
+            this.isSelectedAll = flag;
         }
     }
 });
