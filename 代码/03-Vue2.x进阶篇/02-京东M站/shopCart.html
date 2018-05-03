@@ -32,7 +32,7 @@
                 </div>
                 <div class="shopCart_list_con">
                     <div class="list_con_left">
-                        <a href="javascript:;" class="cart_check_box"></a>
+                        <a href="javascript:;" class="cart_check_box" :checked="shop.checked"></a>
                     </div>
                     <div class="list_con_right">
                         <div class="shop_img">
@@ -63,7 +63,7 @@
         <!--底部通栏-->
         <div id="tab_bar">
             <div class="tab-bar-left">
-                <a href="javascript:;" class="cart_check_box" checked></a>
+                <a href="javascript:;" class="cart_check_box" :checked="isSelectedAll" @click="selectedAll(isSelectedAll)"></a>
                 <span style="font-size: 16px;">全选</span>
                 <div class="select-all">
                     合计:<span class="total-price">￥333.2</span>

@@ -2,7 +2,9 @@ new Vue({
     el:'#app',
     data:{
         // 购物车中的数据
-        shopListArr: []
+        shopListArr: [],
+        // 是否全选
+        isSelectedAll: false
     },
     // 组件加载完毕,请求网络数据,业务处理
     mounted(){
@@ -65,6 +67,21 @@ new Vue({
                 }
                 shop.shopNumber -= 1;
             }
+        },
+
+        // 3.全选控制
+        selectedAll(status){
+            // 3.1 总控制
+            this.isSelectedAll = !status;
+
+            // 3.2 遍历所有商品的数据
+            this.shopListArr.forEach((value, index) =>{
+                if(typeof value.checked === 'undefined'){
+                    this.$set(value, 'checked', !status);
+                }else{
+                    value.checked = !status;
+                }
+            });
         }
     }
 });
