@@ -41,14 +41,14 @@
                         <div class="shop_con">
                             <a href="" v-text="shop.shopName"></a>
                             <div class="shop_price">
-                                <div class="singer">{{shop.shopPrice}}</div>
-                                <div class="total">{{shop.shopNumber * shop.shopPrice}}</div>
+                                <div class="singer">{{shop.shopPrice | moneyFormat(shop.shopPrice)}}</div>
+                                <div class="total">{{shop.shopNumber * shop.shopPrice | moneyFormat(shop.shopNumber * shop.shopPrice)}}</div>
                             </div>
                             <div class="shop_deal">
                                 <div class="shop_deal_left">
-                                    <span>-</span>
+                                    <span @click="singerShopPrice(shop, false)">-</span>
                                     <input type="tel" value="shop.shopNumber" v-model="shop.shopNumber">
-                                    <span>+</span>
+                                    <span @click="singerShopPrice(shop, true)">+</span>
                                 </div>
                                 <div class="shop_deal_right">
                                     <span></span>

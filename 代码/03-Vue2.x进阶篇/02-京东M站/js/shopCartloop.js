@@ -9,6 +9,14 @@ new Vue({
         // 请求本地的数据
         this.getLocalData()
     },
+
+    // 过滤
+    filters:{
+        //格式化金钱
+        moneyFormat(money){
+            return '￥' + money.toFixed(2);
+        }
+    },
     methods:{
         // 1. 请求本地数据
         getLocalData(){
@@ -44,6 +52,19 @@ new Vue({
             // },response =>{
             //
             // });
+        },
+        // 2.单个商品的数量加减
+        singerShopPrice(shop, flag){
+            if(flag){
+                //加
+                return shop.shopNumber +=1;
+            }else{
+                if(shop.shopNumber <= 1){
+                    shop.shopNumber =1;
+                    return;
+                }
+                shop.shopNumber -= 1;
+            }
         }
     }
 });
