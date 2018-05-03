@@ -66,7 +66,7 @@
                 <a href="javascript:;" class="cart_check_box" :checked="isSelectedAll" @click="selectedAll(isSelectedAll)"></a>
                 <span style="font-size: 16px;">全选</span>
                 <div class="select-all">
-                    合计:<span class="total-price">￥333.2</span>
+                    合计:<span class="total-price">{{totalPrice| moneyFormat(totalPrice)}}</span>
                 </div>
                 <div class="tab-bar-right">
                     <a href="index.html" class="pay">去结算</a>

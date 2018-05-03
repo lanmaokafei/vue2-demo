@@ -4,7 +4,9 @@ new Vue({
         // 购物车中的数据
         shopListArr: [],
         // 是否全选
-        isSelectedAll: false
+        isSelectedAll: false,
+        //所有商品总价格
+        totalPrice: 0
     },
     // 组件加载完毕,请求网络数据,业务处理
     mounted(){
@@ -55,6 +57,7 @@ new Vue({
             //
             // });
         },
+
         // 2.单个商品的数量加减
         singerShopPrice(shop, flag){
             if(flag){
@@ -82,6 +85,22 @@ new Vue({
                     value.checked = !status;
                 }
             });
+
+            // 3.3 计算总价格
+            this.getAllShopPrice();
+        },
+
+        //4.计算商品的总价格
+        getAllShopPrice(){
+            let totalPrice = 0;
+            // 4.1遍历所有商品
+            this.shopListArr.forEach((value, index)=>{
+               // 判断商品是否被选中
+               if(value.checked){
+                   totalPrice += value.shopPrice * value.shopNumber;
+               }
+            });
+            this.totalPrice = totalPrice;
         }
     }
 });
