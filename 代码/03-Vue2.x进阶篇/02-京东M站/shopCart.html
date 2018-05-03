@@ -50,7 +50,7 @@
                                     <input type="tel" value="shop.shopNumber" v-model="shop.shopNumber">
                                     <span @click="singerShopPrice(shop, true)">+</span>
                                 </div>
-                                <div class="shop_deal_right">
+                                <div class="shop_deal_right" @click="clickTrash(shop)">
                                     <span></span>
                                     <span></span>
                                 </div>
@@ -74,12 +74,12 @@
             </div>
         </div>
         <!--弹出面板-->
-        <div class="panel panel_is_show">
+        <div class="panel" :class="{'panel_is_show':isHideDelPanel}">
             <div class="panel_content">
                 <div class="panel_title">您确认删除这个商品吗?</div>
                 <div class="panel_footer">
-                    <button class="cancel">取消</button>
-                    <button class="submit">确认</button>
+                    <button class="cancel" @click="isHideDelPanel = true">取消</button>
+                    <button class="submit" @click="delShop()">确认</button>
                 </div>
             </div>
         </div>

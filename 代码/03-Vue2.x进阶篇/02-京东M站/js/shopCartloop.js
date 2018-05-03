@@ -6,7 +6,11 @@ new Vue({
         // 是否全选
         isSelectedAll: false,
         //所有商品总价格
-        totalPrice: 0
+        totalPrice: 0,
+        // 是否隐藏删除面板
+        isHideDelPanel:true,
+        // 当前要删除的一个商品
+        currentDelshop:{}
     },
     // 组件加载完毕,请求网络数据,业务处理
     mounted(){
@@ -128,6 +132,25 @@ new Vue({
                 }
             });
             this.isSelectedAll = flag;
+        },
+
+        // 7.点击垃圾桶
+        clickTrash(shop){
+            this.isHideDelPanel = false;
+            this.currentDelshop = shop;
+        },
+
+        // 8.删除当前的商品
+        delShop(){
+            // 8.1 隐藏面板
+            this.isHideDelPanel = true;
+            // 8.2 数组中移除商品
+            const index = this.shopListArr.indexOf(this.currentDelshop);
+
+            this.shopListArr.splice(index, 1);
+
+            // 8.3 计算总价
+            this.getAllShopPrice();
         }
     }
 });
