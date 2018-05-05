@@ -15,7 +15,10 @@ new Vue({
     // 组件加载完毕,请求网络数据,业务处理
     mounted(){
         // 请求本地的数据
-        this.getLocalData()
+        // this.getLocalData()
+
+        // 请求远程服务器数据
+        this.getRemotelData()
     },
 
     // 过滤
@@ -151,6 +154,30 @@ new Vue({
 
             // 8.3 计算总价
             this.getAllShopPrice();
-        }
+        },
+
+        // 9.请求远程购物车信息
+        getRemotelData(){
+
+            // 使用axios
+            return axios.get('http://127.0.0.1:8000/api/products/', {
+                params: {
+                  ID: 12345
+                }
+              })
+              .then((response) => {
+                console.log(response.data);
+                const res = response.data;
+                if(res){
+                    this.shopListArr = res.allShops.shopList;
+                    console.log(this.shopListArr);
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                alert('请求数据失败!');
+              });
+
+        },
     }
 });
