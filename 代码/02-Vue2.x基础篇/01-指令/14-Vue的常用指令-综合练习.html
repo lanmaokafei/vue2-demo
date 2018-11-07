@@ -109,8 +109,8 @@
                 },
                 // 获取本地存储学生列表
                 getLocalStudentList(){
-                    this.students = JSON.parse(window.localStorage.getItem('students') || '[]');
-                    console.log(this.students);
+                    this.persons = JSON.parse(window.localStorage.getItem('students') || '[]');
+                    console.log(this.persons);
                 },
                 //创建一条新记录
                 createNewStudent(){
@@ -132,18 +132,18 @@
                     // 4. 插入新記錄
 
                     // 添加到服務器
-                    this.$http.post('http://127.0.0.1:8000/pdd/students/', this.newStudent, {emulateJSON:true}).then(response =>{
+                    //this.$http.post('http://127.0.0.1:8000/pdd/students/', this.newStudent, {emulateJSON:true}).then(response =>{
                         //console.log(response);
-                        if(response.status === 201){
+                    //    if(response.status === 201){
                             // 插入成功
-                            this.getStudentList();
-                        }
-                     }, response => {
-                            // 插入失败
-                            alert('插入数据失败');
-                            console.log(response);
+                    //        this.getStudentList();
+                    //   }
+                    // }, response => {
+                    //        // 插入失败
+                    //        alert('插入数据失败');
+                    //        console.log(response);
                         
-                    });
+                    //});
                     
                     // 往数组中添加一条新纪录
                     this.persons.unshift(this.newStudent);
